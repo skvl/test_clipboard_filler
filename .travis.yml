@@ -1,0 +1,8 @@
+os: windows
+language: shell
+before_install:
+    - choco install visualstudio2019buildtools
+    - choco install cmake
+    - choco install windows-sdk-10.1
+script:
+    - cmake -G "Visual Studio 16 2019" .
