@@ -25,7 +25,7 @@ void FillClipboard()
     int nMemSize = str.size() + 1;// need terminating zero
     HANDLE hData = GlobalAlloc(GHND,nMemSize);
     LPSTR lpData = (LPSTR)GlobalLock(hData);
-    lstrcpyn(lpData, str, nMemSize);
+    lstrcpyn(lpData, str.data(), nMemSize);
     GlobalUnlock(hData);
     if(OpenClipboard(NULL))
     {
