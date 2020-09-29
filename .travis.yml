@@ -1,8 +1,12 @@
 os: windows
 language: shell
 before_install:
-    - choco install visualstudio2019buildtools
-    - choco install cmake
-    - choco install windows-sdk-10.1
+    - choco install python
+    - python --version
+    - python -m pip install -U pip
+    - python -m pip install meson
+    - choco install ninja
 script:
-    - cmake -G "Visual Studio 16 2019" .
+    - meson .out
+    - ninja -C .out
+    - .out\app.exe
